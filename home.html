@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>首页</title>
+    <link rel="stylesheet" href="sample.css" type="text/css" />
+    <script src="node_modules/imark/imark.min.js"></script>
+    <script src="sample.js"></script>
+    <script>
+        var Logout = function () {
+            markPicker('logoutButton');
+            localStorage.removeItem('userId');
+            location.replace(`login.html`);
+        };
+        var Alert = function (message) {
+            if (UserName == '游客') {
+                message = '请先登录';
+            }
+            alert(message);
+        };
+    </script>
+</head>
+<body>
+    <div class="page">
+        <p class="left"><span class="username"></span>您好, 欢迎光临车友之家</p>
+        <p class="center"><button onclick="markPicker('buyButton'); Alert('买车成功');">我要买车</button></p>
+        <p class="center"><button onclick="markPicker('saleButton'); Alert('卖车成功');">我要卖车</button></p>
+        <p class="center"><button onclick="markPicker('rentButton'); Alert('租车成功');">我要租车</button></p>
+        <p class="right">
+            <a href="javascript:void(0)" onclick="Logout()" class="loginTitle"></a>
+        </p>
+    </div>
+    <script>
+        var UserName = document.querySelector('.username').innerHTML = /username=(.+)/i.test(location.search) ? decodeURI(RegExp.$1) : '游客';
+        document.querySelector('.loginTitle').innerHTML = UserName == '游客' ? '登录' : '退出登录';
+    </script>
+</body>
+</html>

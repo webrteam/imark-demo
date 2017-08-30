@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>闪银用户行为分析平台</title>
+    <script>
+        var buttonClick = function () {
+            var appId = document.getElementById('appId');
+            if(appId.value) {
+                localStorage.appId = appId.value;
+                window.open('/login.html', '_self');
+            }
+        };
+    </script>
+</head>
+<body>
+<ul>
+    <li>
+        appId:
+        <select id="appId">
+            <option value="test">test</option>
+            <option value="ie">ie</option>
+            <option value="ie_pc_b">ie_pc_b</option>
+            <option value="ie_m">ie_m</option>
+            <option value="nomandie">nomandie</option>
+        </select>
+        <button onclick="buttonClick()">示例页面</button>
+    </li>
+</ul>
+</body>
+</html>

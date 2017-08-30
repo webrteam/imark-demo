@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>登录页</title>
+    <link rel="stylesheet" href="sample.css" type="text/css" />
+    <script src="node_modules/imark/imark.js"></script>
+    <script src="sample.js"></script>
+    <script>
+        var Login = function () {
+            markPicker('loginButton');
+            var username = document.forms[0].username.value;
+            if (!username) {
+                return alert('username is empty!');
+            }
+            localStorage.userId = genUuid(8);
+            location.replace(`home.html?loginType=vip&username=${username}`);
+        };
+    </script>
+</head>
+<body>
+    <div class="page">
+        <form class="left">
+            <p>请输入您的大名:</p>
+            <p><input type="text" name="username" /></p>
+            <p><input type="button" onclick="Login()" value="login" /></p>
+        </form>
+        <p class="right">
+            <a href="home.html?loginType=guess">游客请进</a>
+        </p>
+    </div>
+</body>
+</html>
