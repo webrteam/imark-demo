@@ -4,6 +4,7 @@ var proxyTable = {
 	'/service/mark': `${serverPath}/service/mark`
 };
 
+var opn = require("opn");
 var express = require("express");
 var app = express();
 
@@ -16,6 +17,8 @@ Object.keys(proxyTable).forEach(key => {
 
 var port = 3000;
 app.listen(port, x => {
-	console.log(`Node is Run At http://localhost:${port}`);
+	const url = `http://localhost:${port}`;
+	console.log(`Node is Run At ${url}`);
 	console.log(`Admin is Run At ${serverPath}/admin`);
+	opn(url);
 });
