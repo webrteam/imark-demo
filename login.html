@@ -17,13 +17,24 @@
             localStorage.userId = genUuid(8);
             location.replace(`home.html?loginType=vip&username=${username}`);
         };
+
+        var markInput = function (obj) {
+            var options = {
+                actionType: 'change',
+                orderId: localStorage.orderId || '',
+                userId: localStorage.userId || '',
+                target: obj.name,
+                value: obj.value
+            };
+            Mark(options);
+        };
     </script>
 </head>
 <body>
     <div class="page">
         <form class="left">
             <p>请输入您的大名:</p>
-            <p><input type="text" name="username" /></p>
+            <p><input type="text" name="username" onblur="markInput(this)" /></p>
             <p><input type="button" onclick="Login()" value="login" /></p>
         </form>
         <p class="right">
