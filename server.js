@@ -19,6 +19,6 @@ var port = 3000;
 app.listen(port, x => {
 	const url = `http://localhost:${port}`;
 	console.log(`Node is Run At ${url}`);
-	console.log(`Admin is Run At ${serverPath}/admin`);
+	console.log(`Admin is Run At ${serverPath}`);
 	opn(url);
 });
